@@ -27,11 +27,7 @@ public class UserController {
 
     private UserDAO userService;
 
-    @RequestMapping(value = "/populate")
-    public String populate() {
 
-        return "index";
-    }
 
     @RequiresGuest
     @RequestMapping(value = "/signup", method = RequestMethod.POST)

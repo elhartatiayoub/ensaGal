@@ -46,7 +46,7 @@ public class ImageController {
         List<Image> images = imageDao.getAllImages();
         m.addAttribute("images", images);
         m.addAttribute("page", 0);
-        return "index";
+        return "index"; 
     }
 
     @RequestMapping(value = "/index/liked", method = RequestMethod.GET)

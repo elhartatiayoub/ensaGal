@@ -78,11 +78,18 @@ public class ImageDAOImpl implements ImageDao {
 
     @Override
     public List<Image> getAllImages() {
-            Session session = this.sessionFactory.getCurrentSession();
-            Transaction tr = session.beginTransaction();
-            List<Image> imgList = session.createQuery("from Image").list();
-            tr.commit();
-            return imgList;
+        String hql = "FROM Image";
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery(hql);
+        query.setMaxResults(20);
+        List results = query.list();
+
+        if (results.isEmpty()) {
+            return null;
+        } else {
+            return results;
+        }
+
     }
 
     @Override
